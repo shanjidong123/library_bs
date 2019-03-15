@@ -1,0 +1,144 @@
+<!-- 列表区域  -->
+<div class="u-container-fluid u-widget-bg padding-0">
+    <div class="u-widget margin-0">
+        <div class="u-widget-body">
+            <div class="u-row margin-left-0 margin-right-0">
+                <!--图书类别树表  -->
+                <div class="u-col-md-3 lefttree" id="treeT">
+                    <div class="" style=" line-height: 30px;float: left;margin-left:15px;">
+                        <span>图书类别</span>
+                    </div>
+                    <!--tree-->
+                    <div class="u-col-md-3" id="tree2Around" style="width:100%;">
+                        <div id="tree2" class="ztree"
+                             u-meta='{"id":"tree2","data":"refdata","type":"tree","idField":"id","pidField":"parent_id","nameField":"name","setting":"treeSetting"}'>
+                        </div>
+                    </div>
+                </div>
+
+                <!--图书表格-->
+                <div class="u-col-md-9 padding-left-0 padding-right-0" style="border-left:1px solid #cecece;">
+                    <div class="infoPanel" id="infoPanel"></div>
+                    <div class="treefrom">
+                        <div class="ec-search u-col-md-12 u-col-sm-12  ">
+                            <div class="u-button-group">
+                                <input
+                                        type="button" class="u-button u-button-primary u-buttom-sm"
+                                        id="add_book" value="新增图书"
+                                        style="" data-bind="click: event.addBookClick">
+                                <input
+                                        type="button" class="u-button u-button-primary u-buttom-sm"
+                                        id="edit_book" value="编辑图书"
+                                        style="" data-bind="click: event.editBookClick">
+                                <input
+                                        type="button" class="u-button u-button-primary u-buttom-sm"
+                                        id="del_book" value="删除图书"
+                                        style="" data-bind="click: event.delBookClick">
+                            </div>
+                            <!--图书编辑对话框-->
+                            <div id="dialog_content_book" class="modal-dialog" style="display:none;">
+                                <div class="u-msg-title">
+                                    <h4>新增图书</h4>
+                                </div>
+                                <HR width="100%" color=#F8F9FB SIZE=3 align="center"/>
+                                <div class="u-msg-content add-man">
+                                    <div class="u-form" id="add-form">
+                                        <div class="u-col-md-12 form-group">
+                                            <div class="u-col-md-3 control-label">
+                                                <label style="color: red;">*</label>
+                                                <label>图书名称</label>
+                                            </div>
+                                            <input class="u-col-md-9 u-form-control " type="text" id="add_name"
+                                                   u-meta='{"type":"string","data":"dtnew","field":"name"}'
+                                                   placeholder="请输入图书名称"
+                                                    />
+                                        </div>
+                                        <div class="u-col-md-12 form-group">
+                                            <div class="u-col-md-3 control-label">
+                                                <label style="color: red;">*</label>
+                                                <label>图书编码</label>
+                                            </div>
+                                            <input class="u-col-md-9 u-form-control " type="text" id="add_code"
+                                                   u-meta='{"type":"string","data":"dtnew","field":"code"}'
+                                                   placeholder="请输入图书编码"
+                                                    />
+                                        </div>
+
+                                        <div class="u-col-md-12 form-group">
+                                            <div class="u-col-md-3 control-label">
+                                                <label >出版社</label>
+                                            </div>
+                                            <input class="u-col-md-9 u-form-control " type="text" id="add_publish"
+                                                   u-meta='{"type":"string","data":"dtnew","field":"publish"}'
+                                                   placeholder="请输入图书出版社"
+                                                    />
+                                        </div>
+                                        <div class="u-col-md-12 form-group">
+                                            <div class="u-col-md-3 control-label">
+                                                <label >租用超时价格</label>
+                                            </div>
+                                            <input class="u-col-md-9 u-form-control " type="text" id="add_rent"
+                                                   u-meta='{"type":"string","data":"dtnew","field":"price_rent"}'
+                                                   placeholder="请输入图书租用超时价格(天)"
+                                                    />
+                                        </div>
+                                        <div class="u-col-md-12 form-group">
+                                            <div class="u-col-md-3 control-label">
+                                                <label >所属类别</label>
+                                            </div>
+                                            <input class="u-col-md-9 u-form-control " type="text" id="add_booktype"
+                                                   u-meta='{"type":"string","data":"dtnew","field":"booktype_name"}'
+												   disabled="disabled"
+                                                    />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="u-msg-footer">
+                                    <button id="saveman" class="u-msg-ok u-button u-button-primary"
+                                            data-bind="click: event.saveBookClick">保存
+                                        <span class="u-button-container"></span>
+                                    </button>
+                                    <button id="cancelman" class="u-msg-cancel u-button u-button-white"
+                                            data-bind="click: event.cancelBookClick">取消
+                                        <span class="u-button-container"></span>
+                                    </button>
+                                    
+                                </div>
+                            </div>
+                            <div id="searchdiv" class="u-input-group u-has-feedback pull-right input_enter">
+                                <input type="text" class="u-form-control sm " id="search"
+                                       placeholder="名称/编码">
+                                <span class="u-form-control-feedback uf uf-search-light-2" id="searchBtn"
+                                      data-bind="click: event.searchClick"></span>
+                            </div>
+                        </div>
+
+
+                        <!--图书表格-->
+                        <div class="main-container padding-0 contacts-container">
+                            <div class="hr-table ">
+                                <div class="u-table b-table width-full"
+                                     u-meta='{"id":"gridaddress","type":"grid","data":"dt1","columnWidth":"150px"}'>
+                                    <div
+                                            options='{"field":"name","title":"图书名称","dataType":"String","editType":"string"}'></div>
+                                    <div
+                                            options='{"field":"code","title":"图书编码","dataType":"String","editType":"string"}'></div>
+                                    <div
+                                            options='{"field":"publish","title":"出版社","dataType":"String","editType":"string"}'></div>
+                                    <div
+                                            options='{"field":"price_rent","title":"租用超时价格(天)","dataType":"String","editType":"string"}'>
+                                    </div>
+                                    <div
+                                            options='{"field":"booktype_name","title":"所属类别","dataType":"String","editType":"string"}'>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id='pagination' class='pagination u-pagination pagination-sm'></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

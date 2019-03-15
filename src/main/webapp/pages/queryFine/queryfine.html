@@ -1,0 +1,34 @@
+<div class="list-panel" id="manager">
+    <div class="common-header-1">
+        <div class="u-col-4" style="margin-left: 48%">
+            <span>罚款查询</span>
+        </div>
+
+    </div>
+    <div class="common-header-2">
+        <div class="pull-left">
+            <div id="searchdiv" class="u-input-group u-has-feedback ">
+                <input type="text" class="u-form-control sm input_enter" id="search"
+                       placeholder="输入图书编码/图书名称"> <span
+                    class="u-form-control-feedback uf uf-search-light-2"
+                    id="searchBtn" data-bind="click: event.searchClick"></span>
+            </div>
+        </div>
+    </div>
+    <!--table-->
+    <div class="main-container cartable-container">
+        <div class="hr-table ">
+            <div class="u-table b-table width-full"
+                 u-meta='{"id":"gridcardtable","type":"grid","data":"dt1","columnWidth":"150px"}'>
+                <div options='{"field":"code","title":"图书编码","dataType":"String","editType":"string"}'></div>
+                <div options='{"field":"name","title":"图书名称","dataType":"String","editType":"string"}'></div>
+                <div options='{"field":"timeout_length","title":"超时时长","dataType":"String","editType":"string"}'></div>
+                <div options='{"field":"pay_fine","title":"应缴纳罚款","dataType":"String","editType":"string"}'></div>
+                <div options='{"field":"user_name","title":"用户名称","dataType":"String","editType":"string"}'></div>
+                <div options='{"field":"payfine_state","title":"缴纳罚款状态","dataType":"String","editType":"string"}'></div>
+                <div options='{"field":"def1","title":"罚款缴纳时间","dataType":"String","editType":"string"}'></div>
+            </div>
+        </div>
+        <div id='pagination' class='pagination u-pagination pagination-sm'></div>
+    </div>
+</div>

@@ -1,0 +1,176 @@
+<!-- 列表区域  -->
+<div class="u-container-fluid u-widget-bg padding-0">
+    <div class="u-widget margin-0">
+        <div class="u-widget-body">
+            <div class="u-row margin-left-0 margin-right-0">
+                <!--树表  -->
+                <div class="u-col-md-3 lefttree" id="treeT">
+                    <div class="" style=" line-height: 30px;float: left;margin-left:15px;">
+                        <span>学院类别</span>
+                    </div>
+                    <div class=" u-button-group group-spec margin-left-15" style="margin-bottom:4px;float:right;">
+                        <div id="dialog_content_instit" style="display:none;">
+                            <div class="u-msg-title">
+                                <h4>新增学院类别</h4>
+                            </div>
+                            <HR width="100%" color=#F8F9FB SIZE=3 align="center"/>
+                            <div class="u-msg-content add-depart">
+                                <div class="u-form">
+                                    <div class="u-col-md-12 form-group">
+                                        <div class="u-col-md-3 control-label">
+                                            <label style="color: red;">*</label>
+                                            <label>类别编码</label>
+                                        </div>
+                                        <input type="text" id="code"
+                                               class="u-col-md-9 u-form-control"
+                                               u-meta='{"type":"string","data":"dtnew","field":"code"}'
+                                               placeholder="请输入编码">
+                                    </div>
+                                    <div class="u-col-md-12 form-group">
+                                        <div class="u-col-md-3 control-label">
+                                            <label style="color: red;">*</label>
+                                            <label>类别名称</label>
+                                        </div>
+                                        <input type="text" id="name"
+                                               class="u-col-md-9 u-form-control"
+                                               u-meta='{"type":"string","data":"dtnew","field":"name"}'
+                                               placeholder="请输入类别名称">
+                                    </div>
+                                    <div class="u-col-md-12 form-group">
+                                        <label class="u-col-md-3 control-label">父级名称</label>
+                                        <input type="text" id="parentname"
+                                               class="u-col-md-9 u-form-control"
+                                               u-meta='{"type":"string","data":"dtnew","field":"parent_id_name"}'
+                                               placeholder="父级名称"
+                                               disabled="disabled">
+                                    </div>
+                                    <div class="u-col-md-12 form-group">
+                                    	<div class="u-col-md-3 control-label">
+                                            <label style="color: red;">*</label>
+                                            <label>排序</label>
+                                        </div>
+                                        <input type="text" id="sort"
+                                               class="u-col-md-9 u-form-control"
+                                               u-meta='{"type":"string","data":"dtnew","field":"sort"}'
+                                               placeholder="请输入自然数">
+                                    </div>
+                                    <div class="u-col-md-12 form-group">
+                                        <label class="u-col-md-3 control-label">学生数量</label>
+                                        <input type="text" id="student_num"
+                                               class="u-col-md-9 u-form-control"
+                                               u-meta='{"type":"string","data":"dtnew","field":"student_num"}'
+                                               placeholder="0" disabled="disabled">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="u-msg-footer">
+                                <div class="pull-right">
+                                    <button id="canceltree" class="u-button editCancel raised back"
+                                            data-bind="click: event.cancelCollegeTypeClick">取消<span
+                                            class="u-button-container"><span
+                                            class="u-ripple"></span></span>
+                                    </button>
+                                    
+                                    <button id="savetree" class="u-button raised u-button-primary margin-right-10"
+                                            data-bind="click: event.saveCollegeTypeClick">
+                                                                                                                                     保存<span class="u-button-container"><span class="u-ripple"></span></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <HR class="hide" width="100%" color=#F8F9FB SIZE=30 align="center"/>
+                    </div>
+                    <!--tree-->
+                    <div class="u-col-md-3" id="tree2Around" style="width:100%;">
+                        <div id="tree2" class="ztree"
+                             u-meta='{"id":"tree2","data":"refData","type":"tree","idField":"id","pidField":"parent_id","nameField":"name","setting":"treeSetting"}'>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="u-col-md-9 padding-left-0 padding-right-0" style="border-left:1px solid #cecece;">
+                    <div class="infoPanel" id="infoPanel">
+                    	<div class="u-button-group pull-right" style="margin-top: 1%">
+                                <input
+                                        type="button" class="u-button u-button-primary u-buttom-sm"
+                                        id="add_college" value="新增类别"
+                                        style="" data-bind="click: event.addCollegeTypeClick">
+                                <input
+                                        type="button" class="u-button u-button-primary u-buttom-sm"
+                                        id="edit_college" value="编辑类别"
+                                        style="" data-bind="click: event.editCollegeTypeClick">
+                                <input
+                                        type="button" class="u-button u-button-primary u-buttom-sm"
+                                        id="del_college" value="删除类别"
+                                        style="" data-bind="click: event.delCollegeTypeClick">
+                         </div>
+                    </div>
+                    
+                    <div class="treefrom" style="margin-top: -0.5%">
+                        <!--telbooktable-->
+                        <div class="main-container padding-0 contacts-container">
+                            <div class="u-msg-content ">
+                            	<div class=" system-row u-row margin-top-20">
+                                	<div class="u-col-2 right-col">
+                                    	<label class="u-input-label right">类别编码:</label>
+                                	</div>
+                                	<div class="u-col-8 ">
+                                    	<input type="text"
+                                           class="u-form-control padding-left-15"
+                                           u-meta='{"type":"string","data":"dt1","field":"code"}' disabled="disabled"
+                                           style=" border-style:none;">
+                                	</div>
+                            	</div>
+                            	<div class=" system-row u-row margin-top-20">
+                                	<div class="u-col-2 right-col">
+                                    	<label class="u-input-label right">类别名称:</label>
+                                	</div>
+                                	<div class="u-col-8 ">
+                                    	<input type="text"
+                                           class="u-form-control padding-left-15"
+                                           u-meta='{"type":"string","data":"dt1","field":"name"}' disabled="disabled"
+                                           style=" border-style:none;">
+                                	</div>
+                            	</div>
+                            	<div class=" system-row u-row margin-top-20">
+                                	<div class="u-col-2 right-col">
+                                    	<label class="u-input-label right">父级名称:</label>
+                                	</div>
+                                	<div class="u-col-8 ">
+                                    	<input type="text"
+                                           class="u-form-control padding-left-15"
+                                           u-meta='{"type":"string","data":"dt1","field":"parent_id_name"}' disabled="disabled"
+                                           style=" border-style:none;">
+                                	</div>
+                            	</div>
+                            	<div class=" system-row u-row margin-top-20">
+                                	<div class="u-col-2 right-col">
+                                    	<label class="u-input-label right">排序:</label>
+                                	</div>
+                                	<div class="u-col-8 ">
+                                    	<input type="text"
+                                           class="u-form-control padding-left-15"
+                                           u-meta='{"type":"string","data":"dt1","field":"sort"}' disabled="disabled"
+                                           style=" border-style:none;">
+                                	</div>
+                            	</div>
+                            	<div class=" system-row u-row margin-top-20">
+                                	<div class="u-col-2 right-col">
+                                    	<label class="u-input-label right">学生数量:</label>
+                                	</div>
+                                	<div class="u-col-8 ">
+                                    	<input type="text"
+                                           class="u-form-control padding-left-15"
+                                           u-meta='{"type":"string","data":"dt1","field":"student_num"}' disabled="disabled"
+                                           style=" border-style:none;">
+                                	</div>
+                            	</div>
+                        	</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

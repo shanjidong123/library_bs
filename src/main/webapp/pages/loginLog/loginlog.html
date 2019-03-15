@@ -1,0 +1,31 @@
+<div class="list-panel" id="manager">
+    <div class="common-header-1">
+        <div class="u-col-4" style="margin-left: 48%">
+            <span>登录日志</span>
+        </div>
+
+    </div>
+    <div class="common-header-2">
+        <div class="pull-left">
+            <div id="searchdiv" class="u-input-group u-has-feedback ">
+                <input type="text" class="u-form-control sm input_enter" id="search"
+                       placeholder="输入用户姓名"> <span
+                    class="u-form-control-feedback uf uf-search-light-2"
+                    id="searchBtn" data-bind="click: event.searchClick"></span>
+            </div>
+        </div>
+    </div>
+    <!--table-->
+    <div class="main-container cartable-container">
+        <div class="hr-table ">
+            <div class="u-table b-table width-full"
+                 u-meta='{"id":"gridlogintable","type":"grid","data":"dt1","columnWidth":"150px"}'>
+                <div options='{"field":"name","title":"用户姓名","dataType":"String","editType":"string"}'></div>
+                <div options='{"field":"login_time","title":"登录时间","dataType":"String","editType":"string"}'></div>
+                <div options='{"field":"login_type","title":"登录类型","dataType":"String","editType":"string"}'></div>
+                <div options='{"field":"login_ip","title":"登录地址","dataType":"String","editType":"string"}'></div>
+            </div>
+        </div>
+        <div id='pagination' class='pagination u-pagination pagination-sm'></div>
+    </div>
+</div>

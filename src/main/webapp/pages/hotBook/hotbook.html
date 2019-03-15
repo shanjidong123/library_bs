@@ -1,0 +1,33 @@
+<div class="list-panel" id="manager">
+    <div class="common-header-1">
+        <div class="u-col-4" style="margin-left: 48%">
+            <span>热门图书</span>
+        </div>
+
+    </div>
+    <div class="common-header-2">
+        <div class="pull-left">
+            <div id="searchdiv" class="u-input-group u-has-feedback ">
+                <input type="text" class="u-form-control sm input_enter" id="search"
+                       placeholder="输入图书编码/图书名称"> <span
+                    class="u-form-control-feedback uf uf-search-light-2"
+                    id="searchBtn" data-bind="click: event.searchClick"></span>
+            </div>
+        </div>
+    </div>
+    <!--table-->
+    <div class="main-container cartable-container">
+        <div class="hr-table ">
+            <div class="u-table b-table width-full"
+                 u-meta='{"id":"gridcardtable","type":"grid","data":"dt1","columnWidth":"150px"}'>
+                <div options='{"field":"code","title":"图书编码","dataType":"String","editType":"string"}'></div>
+                <div options='{"field":"name","title":"图书名称","dataType":"String","editType":"string"}'></div>
+                <div options='{"field":"publish","title":"出版社","dataType":"String","editType":"string"}'></div>
+                <div options='{"field":"price_rent","title":"租用超时价格","dataType":"String","editType":"string"}'></div>
+                <div options='{"field":"booktype_name","title":"类别名称","dataType":"String","editType":"string"}'></div>
+                <div options='{"field":"def1","title":"热度","dataType":"String","editType":"string"}'></div>
+            </div>
+        </div>
+        <div id='pagination' class='pagination u-pagination pagination-sm'></div>
+    </div>
+</div>

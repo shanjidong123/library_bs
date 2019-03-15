@@ -1,0 +1,136 @@
+<!-- 列表区域  -->
+<div class="u-container-fluid u-widget-bg padding-0">
+    <div class="u-widget margin-0">
+        <div class="u-widget-body">
+            <div class="u-row margin-left-0 margin-right-0">
+                <!--学院类别树表  -->
+                <div class="u-col-md-3 lefttree" id="treeT">
+                    <div class="" style=" line-height: 30px;float: left;margin-left:15px;">
+                        <span>学院类别</span>
+                    </div>
+                    <!--tree-->
+                    <div class="u-col-md-3" id="tree2Around" style="width:100%;">
+                        <div id="tree2" class="ztree"
+                             u-meta='{"id":"tree2","data":"refdata","type":"tree","idField":"id","pidField":"parent_id","nameField":"name","setting":"treeSetting"}'>
+                        </div>
+                    </div>
+                </div>
+
+                <!--学生信息表格-->
+                <div class="u-col-md-9 padding-left-0 padding-right-0" style="border-left:1px solid #cecece;">
+                    <div class="infoPanel" id="infoPanel"></div>
+                    <div class="treefrom">
+                        <div class="ec-search u-col-md-12 u-col-sm-12  ">
+                            <div class="u-button-group">
+                                <input
+                                        type="button" class="u-button u-button-primary u-buttom-sm"
+                                        id="add_college" value="新增学生"
+                                        style="" data-bind="click: event.addCollegeClick">
+                                <input
+                                        type="button" class="u-button u-button-primary u-buttom-sm"
+                                        id="edit_college" value="编辑学生"
+                                        style="" data-bind="click: event.editCollegeClick">
+                                <input
+                                        type="button" class="u-button u-button-primary u-buttom-sm"
+                                        id="del_college" value="删除学生"
+                                        style="" data-bind="click: event.delCollegeClick">
+                                <input
+                                        type="button" class="u-button u-button-primary u-buttom-sm"
+                                        id="login_authorization" value="登录授权"
+                                        style="" data-bind="click: event.loginAuthorizationClick">        
+                            </div>
+                            <!--学生信息编辑对话框-->
+                            <div id="dialog_content_college" class="modal-dialog" style="display:none;">
+                                <div class="u-msg-title">
+                                    <h4>新增学生</h4>
+                                </div>
+                                <HR width="100%" color=#F8F9FB SIZE=3 align="center"/>
+                                <div class="u-msg-content add-man">
+                                    <div class="u-form" id="add-form">
+                                        <div class="u-col-md-12 form-group">
+                                            <div class="u-col-md-3 control-label">
+                                                <label style="color: red;">*</label>
+                                                <label>学生姓名</label>
+                                            </div>
+                                            <input class="u-col-md-9 u-form-control " type="text" id="add_name"
+                                                   u-meta='{"type":"string","data":"dtnew","field":"name"}'
+                                                   placeholder="请输入学生姓名"
+                                                    />
+                                        </div>
+                                        <div class="u-col-md-12 form-group">
+                                            <div class="u-col-md-3 control-label">
+                                                <label style="color: red;">*</label>
+                                                <label>学生学号</label>
+                                            </div>
+                                            <input class="u-col-md-9 u-form-control " type="text" id="add_code"
+                                                   u-meta='{"type":"string","data":"dtnew","field":"code"}'
+                                                   placeholder="请输入学生学号"
+                                                    />
+                                        </div>
+                                        <div class="u-col-md-12 form-group">
+                                            <div class="u-col-md-3 control-label">
+                                                <label >登录授权状态</label>
+                                            </div>
+                                            <input class="u-col-md-9 u-form-control " type="text" id="add_login_status"
+                                                   u-meta='{"type":"string","data":"dtnew","field":"login_status"}'
+                                                   disabled="disabled"
+                                                    />
+                                        </div>
+                                        <div class="u-col-md-12 form-group">
+                                            <div class="u-col-md-3 control-label">
+                                                <label >所属类别</label>
+                                            </div>
+                                            <input class="u-col-md-9 u-form-control " type="text" id="add_collegetype"
+                                                   u-meta='{"type":"string","data":"dtnew","field":"collegetype_name"}'
+												   disabled="disabled"
+                                                    />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="u-msg-footer">
+                                    <button id="saveman" class="u-msg-ok u-button u-button-primary"
+                                            data-bind="click: event.saveCollegeClick">保存
+                                        <span class="u-button-container"></span>
+                                    </button>
+                                    <button id="cancelman" class="u-msg-cancel u-button u-button-white"
+                                            data-bind="click: event.cancelCollegeClick">取消
+                                        <span class="u-button-container"></span>
+                                    </button>
+                                    
+                                </div>
+                            </div>
+                            <div id="searchdiv" class="u-input-group u-has-feedback pull-right input_enter">
+                                <input type="text" class="u-form-control sm " id="search"
+                                       placeholder="姓名/学号">
+                                <span class="u-form-control-feedback uf uf-search-light-2" id="searchBtn"
+                                      data-bind="click: event.searchClick"></span>
+                            </div>
+                        </div>
+
+
+                        <!--学生表格-->
+                        <div class="main-container padding-0 contacts-container">
+                            <div class="hr-table ">
+                                <div class="u-table b-table width-full"
+                                     u-meta='{"id":"gridcollege","type":"grid","data":"dt1","columnWidth":"150px"}'>
+                                    <div
+                                            options='{"field":"name","title":"学生姓名","dataType":"String","editType":"string"}'></div>
+                                    <div
+                                            options='{"field":"code","title":"学生学号","dataType":"String","editType":"string"}'></div>
+                                    <div
+                                            options='{"field":"login_status","title":"登录授权状态","dataType":"String","editType":"string"}'>
+                                    </div>
+                                    <div
+                                            options='{"field":"collegetype_name","title":"所属类别","dataType":"String","editType":"string"}'>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id='pagination' class='pagination u-pagination pagination-sm'></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

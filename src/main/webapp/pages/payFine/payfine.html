@@ -1,0 +1,72 @@
+<div class="list-panel" id="manager">
+    <div class="common-header-1">
+        <div class="u-col-4 padding-right-0" style="float:right">
+            <div class="u-button-group margin-0" style="float:right;">
+                <button class="u-button u-button-primary" id="payButton" data-bind="click: event.payClick">缴纳</button>
+            </div>
+            <div class="u-button-group margin-0" style="float:right;">
+                <button class="u-button u-button-primary" id="topUp" data-bind="click: event.topUpClick">充值</button>
+            </div>
+        </div>
+        <div class="u-col-4" style="float:right;text-align:center;">
+            <span id="span1">缴纳罚款</span>
+        </div>
+
+    </div>
+    <div class="common-header-2">
+        <div class="pull-left">
+            <div id="searchdiv" class="u-input-group u-has-feedback ">
+                <input type="text" class="u-form-control sm input_enter" id="search"
+                       placeholder="输入图书编码/图书名称"> <span
+                    class="u-form-control-feedback uf uf-search-light-2"
+                    id="searchBtn" data-bind="click: event.searchClick"></span>
+            </div>
+        </div>
+    </div>
+    
+	<div id="dialog_content_topUp" class="modal-dialog" style="display:none;">
+        <div class="u-msg-title">
+            <h4>充值</h4>
+        </div>
+        <HR width="100%" color=#F8F9FB SIZE=3 align="center"/>
+        <div class="u-msg-content add-man">
+            <div class="u-form" id="add-form">
+                <div class="u-col-md-12 form-group">
+                    <div class="u-col-md-3 control-label">
+                        <label>充值金额:</label>
+                    </div>
+                    <input class="u-col-md-9 u-form-control " type="text" id="topUp_input"
+                           placeholder="请输入充值金额"
+                            />
+                </div>                                       
+            </div>
+        </div>
+        <div class="u-msg-footer">
+            <button id="savetopUp" class="u-msg-ok u-button u-button-primary"
+                    data-bind="click: event.saveTopUpClick">充值
+                <span class="u-button-container"></span>
+            </button>
+            <button id="canceltopUp" class="u-msg-cancel u-button u-button-white"
+                    data-bind="click: event.cancelTopUpClick">取消
+                <span class="u-button-container"></span>
+            </button>
+        </div>
+    </div>
+    
+    <!--table-->
+    <div class="main-container cartable-container">
+        <div class="hr-table ">
+            <div class="u-table b-table width-full"
+                 u-meta='{"id":"gridcardtable","type":"grid","data":"dt1","columnWidth":"150px"}'>
+                <div options='{"field":"code","title":"图书编码","dataType":"String","editType":"string"}'></div>
+                <div options='{"field":"name","title":"图书名称","dataType":"String","editType":"string"}'></div>
+                <div options='{"field":"timeout_length","title":"超时时长","dataType":"String","editType":"string"}'></div>
+                <div options='{"field":"price_timeoutrent","title":"租用超时价格(天)","dataType":"String","editType":"string"}'></div>
+                <div options='{"field":"pay_fine","title":"应缴纳罚款","dataType":"String","editType":"string"}'></div>
+                <div options='{"field":"user_name","title":"用户名称","dataType":"String","editType":"string"}'></div>
+                <div options='{"field":"payfine_state","title":"缴纳罚款状态","dataType":"String","editType":"string"}'></div>
+            </div>
+        </div>
+        <div id='pagination' class='pagination u-pagination pagination-sm'></div>
+    </div>
+</div>
